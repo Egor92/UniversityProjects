@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <conio.h>
+int n;
+double *a;
+
+int printM(double* &a, int n)
+{
+	int i,j;
+	for (i=0;i<n;i++)
+		for (j=0;j<n;j++)
+			printf ("a[%d,%d]=%f  ",i,j,a[i*n+j]);
+	return 0;
+}
+ 
+int main()
+{
+	int i,j;
+	n=3;
+	a=new double [n*n];
+	for (i=0;i<n;i++)
+		for (j=0;j<n;j++)
+		{
+			printf ("a[%d,%d]= ",i,j);
+			scanf ("%f",&a[i*n+j]);
+		}
+	printM(a,n);
+	printf ("\n");
+	for (i=0;i<n;i++)
+		for (j=0;j<n;j++)
+			printf ("a[%d,%d]=%f  ",i,j,a[i*n+j]);
+	getch();
+}

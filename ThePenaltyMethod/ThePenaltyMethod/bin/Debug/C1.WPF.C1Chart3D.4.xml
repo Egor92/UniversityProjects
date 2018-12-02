@@ -1,0 +1,1084 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C1.WPF.C1Chart3D.4</name>
+    </assembly>
+    <members>
+        <member name="F:C1.Util.Licensing.AboutForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:C1.Util.Licensing.AboutForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:C1.Util.Licensing.AboutForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:C1.Util.Licensing.ProviderInfo">
+            <summary>
+            <para>Provides static <see cref="M:C1.Util.Licensing.ProviderInfo.Validate(System.Type,System.Object)"/> methods that 
+            should be called from the constructors of licensed classes.</para>
+            <para>Also provides a static <see cref="M:C1.Util.Licensing.ProviderInfo.ShowAboutBox(System.Object)"/> method that can 
+            be called to show the about box with product and licensing information.</para>
+            </summary>
+        </member>
+        <member name="M:C1.Util.Licensing.ProviderInfo.Validate(System.Type,System.Object)">
+            <summary>
+            Perform license validation. Call this method from the licensed object's 
+            constructor to save a license key at design time, validate it at runtime, 
+            and display a nag dialog if a valid license is not found.
+            </summary>
+            <param name="type">Type of licensed object (use typeof() and not GetType()).</param>
+            <param name="instance">Reference to the licensed object (not currently used).</param>
+            <returns>A <see cref="T:C1.Util.Licensing.LicenseInfo"/> object that contains information about the license.</returns>
+            <remarks>
+            <para>Check the <b>ShouldNag</b> property of the returned <see cref="T:C1.Util.Licensing.LicenseInfo"/> 
+            to determine whether the licensed class should nag the user. This value is set
+            to true in situations where a valid license was not found but a nag dialog
+            could not be displayed. In these cases, the licensed class is supposed to nag
+            in some other way (with a watermark for example).</para>
+            </remarks>
+        </member>
+        <member name="M:C1.Util.Licensing.ProviderInfo.Validate(System.Type,System.Object,System.Boolean)">
+            <summary>
+            Perform license validation. Call this method from the licensed object's 
+            constructor to save a license key at design time, validate it at runtime, 
+            and display a nag dialog if a valid license is not found.
+            </summary>
+            <param name="type">Type of licensed object (use typeof() and not GetType()).</param>
+            <param name="instance">Reference to the licensed object (not currently used).</param>
+            <param name="showNagDialog">Whether the nag dialog should be displayed when a valid license is not found.</param>
+            <returns>A <see cref="T:C1.Util.Licensing.LicenseInfo"/> object that contains information about the license.</returns>
+            <remarks>
+            <para>This overload was created for use in WPF. It should be called in the control's constructor
+            in order to support license persistence correctly. But it should not show the nag dialog until the
+            control is fully loaded, or the VS designer may remain blank.</para>
+            <para>So the solution is this:</para>
+            <code>
+            LicenseInfo _licInfo;
+            public LicensedControl()
+            {
+              // check license but don't nag yet
+              _licInfo = ProviderInfo.Validate(typeof(LicensedControl), this, false);
+              
+              // perform licensing after control is fully loaded
+              Loaded += LicensedControl_Loaded;
+            }
+            void LicensedControl_Loaded(object sender, RoutedEventArgs e)
+            {
+              // nag after loading
+              if (_licInfo.ShouldNag)
+              {
+                ProviderInfo.ShowAboutBox(this);
+              }
+            }
+            </code>
+            </remarks>
+        </member>
+        <member name="M:C1.Util.Licensing.ProviderInfo.Nag(System.Type,C1.Util.Licensing.LicenseInfo,System.Boolean)">
+            <summary>
+            Nag user by showing AboutBox with license information.
+            Show it only once per day per assembly.
+            </summary>
+            <param name="type">Type of licensed object (use typeof() and not GetType()).</param>
+            <param name="li"><see cref="T:C1.Util.Licensing.LicenseInfo"/> object that contains information about the license.</param>
+            <param name="designTime">Whether we're running at design or run time.</param>
+        </member>
+        <member name="M:C1.Util.Licensing.ProviderInfo.Validate(System.Type,System.Object,System.Reflection.Assembly,System.String)">
+            <summary>
+            Version of Validate used by constructors that take runtime keys.
+            </summary>
+            <param name="type">Type of licensed object (use typeof() and not GetType()).</param>
+            <param name="instance">Reference to the licensed object.</param>
+            <param name="callingAsm">Assembly that contains the owner licensed control.</param>
+            <param name="runtimeKey">Any valid C1 runtime key.</param>
+            <returns>A <see cref="T:C1.Util.Licensing.LicenseInfo"/> with information about the runtime key.</returns>
+            <remarks>
+            <para>This allows a licensed C1 class to create other C1 objects bypassing 
+            license verification for the child objects.</para>
+            <para>For extra safety, we check that the owner object is defined in an assembly
+            the contains a 'C1ProductInfo' attribute.</para>
+            </remarks>
+        </member>
+        <member name="M:C1.Util.Licensing.ProviderInfo.ValidateDesigntime(System.Type,System.ComponentModel.LicenseContext)">
+            <summary>
+            Design time validation. Looks for a license in the registry and saves it in the
+            provided <see cref="T:System.ComponentModel.LicenseContext"/>.
+            </summary>
+            <param name="type">Type of licensed object (use typeof() and not GetType()).</param>
+            <param name="context"><see cref="T:System.ComponentModel.LicenseContext"/> where the runtime key will be stored.</param>
+            <returns>A <see cref="T:C1.Util.Licensing.LicenseInfo"/> with information about the license.</returns>
+            <remarks>
+            Call this method from application-type products (that always require a license to be
+            installed in the registry). In this case, the <paramref name="context"/> parameter 
+            should be set to null.
+            </remarks>
+        </member>
+        <member name="M:C1.Util.Licensing.ProviderInfo.ValidateRuntime(System.Type,System.ComponentModel.LicenseContext)">
+            <summary>
+            Runtime validation.
+            Looks for a runtime key stored in the current application's resources.
+            </summary>
+            <param name="type">Type of licensed object (use typeof() and not GetType()).</param>
+            <param name="context"><see cref="T:System.ComponentModel.LicenseContext"/> where the runtime key will be stored.</param>
+            <returns>A <see cref="T:C1.Util.Licensing.LicenseInfo"/> with information about the license.</returns>
+        </member>
+        <member name="M:C1.Util.Licensing.ProviderInfo.ShowAboutBox(System.Object)">
+            <summary>
+            Shows the About Box for an instance of a C1 product.
+            </summary>
+        </member>
+        <member name="M:C1.Util.Licensing.ProviderInfo.GetC1Type(System.Object)">
+            <summary>
+            Get the type whose assembly contains a 'C1ProductInfoAttribute'.
+            </summary>
+            <param name="instance">Instance of an object whose type is to be checked.</param>
+            <returns>The type whose assembly contains a 'C1ProductInfoAttribute'</returns>
+        </member>
+        <member name="T:C1.Util.Licensing.LicenseInfo">
+            <summary>
+            Contains information about a license stored in an application.
+            </summary>
+        </member>
+        <member name="M:C1.Util.Licensing.LicenseInfo.#ctor(System.Type,C1.Util.Licensing.LicenseStatus,C1.Util.Licensing.ProductLicense)">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Util.Licensing.LicenseInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:C1.Util.Licensing.LicenseInfo.#ctor(System.Type,C1.Util.Licensing.LicenseStatus)">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Util.Licensing.LicenseInfo"/> class.
+            </summary>
+        </member>
+        <member name="P:C1.Util.Licensing.LicenseInfo.LicenseStatus">
+            <summary>
+            Gets or sets the status of this license (valid, expired, unlicensed).
+            </summary>
+        </member>
+        <member name="P:C1.Util.Licensing.LicenseInfo.License">
+            <summary>
+            Gets or sets the <see cref="T:C1.Util.Licensing.ProductLicense"/> associated with this license.
+            </summary>
+        </member>
+        <member name="P:C1.Util.Licensing.LicenseInfo.Type">
+            <summary>
+            Gets or sets the <see cref="P:C1.Util.Licensing.LicenseInfo.Type"/> associated with this license.
+            </summary>
+        </member>
+        <member name="P:C1.Util.Licensing.LicenseInfo.EvaluationDaysElapsed">
+            <summary>
+            Gets the number of evaluation days elapsed.
+            Returns -1 for valid licenses.
+            </summary>
+        </member>
+        <member name="P:C1.Util.Licensing.LicenseInfo.EvaluationDaysLeft">
+            <summary>
+            Gets the number of evaluation days still left.
+            </summary>
+        </member>
+        <member name="P:C1.Util.Licensing.LicenseInfo.ShouldNag">
+            <summary>
+            Gets or sets a value that determines whether the caller should
+            nag the user. This is the case when the component/control is 
+            not licensed, but is not running in interactive mode. So we can't
+            show a dialog and the caller is supposed to nag some other way
+            (typically by adding watermarks to the UI or output).
+            </summary>
+        </member>
+        <member name="P:C1.Util.Licensing.LicenseInfo.IsValid">
+            <summary>
+            Gets a value that determines whether the license found is valid.
+            </summary>
+        </member>
+        <member name="P:C1.Util.Licensing.LicenseInfo.IsExpired">
+            <summary>
+            Gets a value that determines whether the license found is expired.
+            </summary>
+        </member>
+        <member name="P:C1.Util.Licensing.LicenseInfo.IsLocalHost">
+            <summary>
+            Gets a value that determines whether the component is running under
+            localhost and therefore should not nag the user with alert dialogs.
+            </summary>
+        </member>
+        <member name="T:C1.Util.Licensing.SafeLicenseContext">
+            <summary>
+            
+            Provides a version of GetSavedLicenseKey that doesn't require
+            special permissions.
+            
+            The code was mostly copied from the .NET framework, but then changed 
+            in a few places to require fewer permissions (assembly name, file io, 
+            etc). 
+            
+            The main change is the use of a custom deserializer to read Hashtable 
+            objects instead of the original BinaryFormatter, which requires
+            permissions.
+            
+            </summary>
+        </member>
+        <member name="T:C1.Util.Licensing.C1AboutNameAttribute">
+            <summary>
+            Attribute used to specify the product name shown on the About Box.
+            </summary>
+        </member>
+        <member name="T:C1.Util.Licensing.C1ProductInfoAttribute">
+            <summary>
+            Attribute used to attach licensing/product information to assemblies.
+            </summary>
+        </member>
+        <member name="T:C1.Util.Localization.C1DescriptionAttribute">
+            <summary>
+            C1DescriptionAttribute replaces the DescriptionAttribute
+            and uses the C1Localizer class to return the localized Attribute string
+            </summary>
+        </member>
+        <member name="T:C1.Util.Localization.C1CategoryAttribute">
+            <summary>
+            C1CategoryAttribute replaces the CategoryAttribute
+            and uses the C1Localizer class to return the localized Attribute string
+            </summary>
+        </member>
+        <member name="T:C1.Util.Localization.C1Localizer">
+            <summary>
+            Localization tables and methods for looking up localized strings.
+            </summary>
+        </member>
+        <member name="T:C1.Util.Licensing.ProductLicense">
+            <summary>
+            Represents a license for a product (e.g. C1BarCode, C1Studio Enterprise).
+            
+            Provides methods for:
+            - generating new license keys (administrative task)
+            - checking license key validity (used by installer and products)
+            - generating and checking runtime keys (used by products)
+            - installing/uninstalling licenses (used by installer)
+            
+            The install/uninstall code requires elevated permissions, and is
+            used only by setups and utilities (not by controls). The code is 
+            implemented in the ProductLicense.Installer.cs, which controls should
+            not include since it won't be useful to them.
+            
+            When a product is sold, we send the user a license KEY. The user installs
+            a license on his machine by providing his name, his company name, and the 
+            key.
+            
+            The <see cref="P:C1.Util.Licensing.ProductLicense.Key"/> is a string in the following format:
+            
+                AAQYYCC-XX-NNNNNN-DD-DZZZZZZ
+                
+            Where:
+            
+                AA:     Product code (should match one of the products in the 
+                        product catalog (see ProductInformation.GetProductCatalog()).
+                Q:      Quarter when the license key was issued (1, 2, or 3)
+                YY:     Year when the license key was issued (e.g., 10 for 2010)
+                CC:     Order code, two chars that indicate whether this is a 
+                        new sale, upgrade, renewal, special offer, etc.
+                XX:     Hash code to ensure key validity.
+                NNNNNN: Unique serial number.
+                DDD:    Vendor code, three chars
+                ZZZZZZ: Combination of random numbers for uniqueness and extra hash.
+                
+            </summary>
+        </member>
+        <member name="T:C1.Util.Licensing.ProviderInfoWPF">
+            <summary>
+            Helper class to implement Licensing for WPF classes.
+            This should be used only in WPF projects.
+            </summary>
+        </member>
+        <member name="M:C1.Util.Licensing.ProviderInfoWPF.Validate(System.Type,System.Windows.FrameworkElement,System.Boolean)">
+            <summary>
+            Perform license validation. Call this method from the licensed object's 
+            constructor to save a license key at design time, validate it at runtime, 
+            and display a nag dialog if a valid license is not found.
+            <param name="type">Type of licensed object (use typeof() and not GetType()).</param>
+            <param name="instance">Reference to the licensed object.</param>
+            <returns>A <see cref="T:C1.Util.Licensing.LicenseInfo"/> object that contains information about the license.</returns>
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.TickAppearance">
+            <summary>
+            Enumerates the available axis tick appearances.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.TickAppearance.Dot">
+            <summary>
+            As dots.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.TickAppearance.Line">
+            <summary>
+            As short lines.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.Axis3D">
+            <summary>
+            Represents axis of 3D chart.
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.Axis3D.#ctor">
+            <summary>
+            Creates an instance of Axis3D class.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.ForegroundProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Foreground.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.MajorGridlineStrokeProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for GridlineStroke.  
+            This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.MinProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Min. 
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.MaxProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Max.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.MajorUnitProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for yProperty.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.TitleProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Title. 
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.AnnoFormatProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for AnnoFormat.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.AnnoTemplateProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for AnnoFormat.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.ReversedProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for Reversed.  This enables animation, styling, binding, etc... 
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.MajorTickAppearanceProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for MajorTickAppearance. 
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Axis3D.MajorTickHeightProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for MajorTickHeight. 
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.Foreground">
+            <summary>
+            Gets or set the foreground color of the axis.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.MajorGridlineStroke">
+            <summary>
+            Gets or sets the stroking brush for axis grid lines.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.Min">
+            <summary>
+            Gets or sets the axis minimum.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.Max">
+            <summary>
+            Gets or sets the axis maximum.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.MajorUnit">
+            <summary>
+            Gets or sets the distance between axis labels.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.Title">
+            <summary>
+            Gets or sets the axis title.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.AnnoFormat">
+            <summary>
+            Gets or sets the axis label format string.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.AnnoTemplate">
+            <summary>
+            Gets or sets the template for axis annotations.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.Reversed">
+            <summary>
+            Gets or sets whether the axis is reversed.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.ActualMin">
+            <summary>
+            Gets the actual axis minimum.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.ActualMax">
+            <summary>
+            Gets the actual axis maximum.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.MajorTickAppearance">
+            <summary>
+            Gets or sets the major tick appearance.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Axis3D.MajorTickHeight">
+            <summary>
+            Gets or sets the major tick height.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.LegendPosition">
+            <summary>
+            Enumerates available legend positions.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.LegendPosition.Left">
+            <summary>
+            At the left from the chart. 
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.LegendPosition.Top">
+            <summary>
+            At the top from the chart.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.LegendPosition.Right">
+            <summary>
+            At the right from the chart.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.LegendPosition.Bottom">
+            <summary>
+            At the bottom from the chart.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.LegendPosition.None">
+            <summary>
+            No legend or the legend is placed outside the chart control.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.LegendOrientation">
+            <summary>
+            Enumerates available legend orientation. 
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.LegendOrientation.Auto">
+            <summary>
+            The orientation is selected automatically.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.LegendOrientation.Horizontal">
+            <summary>
+            Horizontal orientation.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.LegendOrientation.Vertical">
+            <summary>
+            Vertical orientation.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.LegendLabelPosition">
+            <summary>
+            Enumerates available labels positions in the legend.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.LegendLabelPosition.Far">
+            <summary>
+            The labels are farther from the chart than legend body.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.LegendLabelPosition.Near">
+            <summary>
+            The labels are nearer to the chart than legend body.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.C1Chart3DLegend">
+            <summary>
+            Represents the legend for 3D chart.
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.C1Chart3DLegend.#ctor">
+            <summary>
+            Creates an instance of C1Chart3DLegend class.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3DLegend.OrientationProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Orientation.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3DLegend.FormatStringProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for FormatString. 
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3DLegend.PositionProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Position.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3DLegend.LabelPositionProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for LabelPosition.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3DLegend.ReversedProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for Reversed.  This enables animation, styling, binding, etc... 
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.C1Chart3DLegend.OnApplyTemplate">
+            <summary>
+            Invoked when ApplyTemplate() method is called.
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.C1Chart3DLegend.MeasureOverride(System.Windows.Size)">
+            <summary>
+            
+            </summary>
+            <param name="availableSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.C1Chart3DLegend.ArrangeOverride(System.Windows.Size)">
+            <summary>
+            
+            </summary>
+            <param name="finalSize"></param>
+            <returns></returns>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3DLegend.Orientation">
+            <summary>
+            Gets or sets the legend orientation.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3DLegend.FormatString">
+            <summary>
+            Gets or sets the format string for the labels in the legend.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3DLegend.Position">
+            <summary>
+            Gets or sets the legend position relatively to the chart.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3DLegend.LabelPosition">
+            <summary>
+            Gets or sets the label position in the legend.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3DLegend.Reversed">
+            <summary>
+            Gets or sets whether the legend order is reversed.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.Chart3DType">
+            <summary>
+            Enumerates available chart types.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Chart3DType.SurfaceWireframe">
+            <summary>
+            Wire-frame surface chart.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Chart3DType.SurfaceWireframeContour">
+            <summary>
+            Wire-frame surface chart with contour levels.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Chart3DType.Surface">
+            <summary>
+            Surface chart.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Chart3DType.SurfaceContour">
+            <summary>
+            Surface chart with contour levels.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Chart3DType.SurfaceZone">
+            <summary>
+            Surface chart with zones.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.Chart3DType.SurfaceZoneContour">
+            <summary>
+            Surface chart with contour zones.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.SurfaceMeshAppearance">
+            <summary>
+            Options for grid mesh appearance.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.SurfaceMeshAppearance.None">
+            <summary>
+            No lines.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.SurfaceMeshAppearance.X">
+            <summary>
+            Lines along x-axis.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.SurfaceMeshAppearance.Y">
+            <summary>
+            Lines along y-axis.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.SurfaceMeshAppearance.XY">
+            <summary>
+            Lines along x- and y-axes.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.PlaneAppearance">
+            <summary>
+            Options for ceil and floor appearance.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.PlaneAppearance.None">
+            <summary>
+            No contour.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.PlaneAppearance.Contour">
+            <summary>
+            Contour lines.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.PlaneAppearance.Zone">
+            <summary>
+            Zones.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.PlaneAppearance.ZoneContour">
+            <summary>
+            Contour zones.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.C1Chart3D">
+            <summary>
+            Represents 3D chart.
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.C1Chart3D.#ctor">
+            <summary>
+            Creates an instance of C1Chart3D class. 
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.C1Chart3D.OnApplyTemplate">
+            <summary>
+            Invoked when ApplyTemplate() method is called.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.ElevationProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Elevation. 
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.AzimuthProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for Azimuth.
+            This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.AxisXProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for AxisX. 
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.AxisYProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for AxisY. 
+            This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.AxisZProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for AxisZ.
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.ColorPaletteProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for ColorPalette.  This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.ChartTypeProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for ChartType. 
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.SurfaceMeshAppearanceProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for SurfaceMeshAppearance.
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.ContourLevelsCountProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for ContourLevelsCount. 
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.XScaleProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for XScale.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.YScaleProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for YScale.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.LegendProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Legend.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.PlotFillProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for PlotFill.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.CeilAppearanceProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for CeilAppearance.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.C1Chart3D.FloorAppearanceProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for FloorAppearance.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.C1Chart3D.ShowAboutBox">
+            <summary>
+            Shows about dialog.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.Elevation">
+            <summary>
+            Gets or sets the elevation angle measured in degrees.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.Azimuth">
+            <summary>
+            Gets or sets the azimuth angle measured in degrees.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.AxisX">
+            <summary>
+            Gets or sets the x-axis.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.AxisY">
+            <summary>
+            Gets or sets the y-axis.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.AxisZ">
+            <summary>
+            Gets or sets the z-axis.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.ColorPalette">
+            <summary>
+            Gets or sets the color palette.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.ChartType">
+            <summary>
+            Gets or sets the chart type.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.SurfaceMeshAppearance">
+            <summary>
+            Gets or sets the surface mesh appearance.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.ContourLevelsCount">
+            <summary>
+            Gets or sets the number of contour levels.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.XScale">
+            <summary>
+            Gets or sets the chart scale along x-axis.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.YScale">
+            <summary>
+            Gets or sets the chart scale along y-axis.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.Legend">
+            <summary>
+            Gets or sets the chart legend.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.PlotFill">
+            <summary>
+            Gets or sets the brush for plot area filling.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.CeilAppearance">
+            <summary>
+            Gets or sets the ceil appearance.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.FloorAppearance">
+            <summary>
+            Gets or sets the floor appearance.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.C1Chart3D.Children">
+            <summary>
+            Gets the collection of data series. Now only one series is supported.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.Chart3DView">
+            <summary>
+            Represent the main part of C1Chart3D control.
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.Chart3DView.#ctor">
+            <summary>
+            Creates an instance of Chart3DView class.
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.Chart3DView.OnApplyTemplate">
+            <summary>
+            Invoked when ApplyTemplate() method is called.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.GridDataSeries">
+            <summary>
+            Represents series with data defined on rectangular grid.
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.GridDataSeries.#ctor">
+            <summary>
+            Creates an instance of GridDataSeries class.
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.GridDataSeries.ZDataProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for GridData.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.GridDataSeries.ContourDataProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for ContourData.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.GridDataSeries.StartProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Start.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.GridDataSeries.StepProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Step.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.GridDataSeries.FillProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Fill.
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.GridDataSeries.BackFillProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for BackFill. 
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.GridDataSeries.StrokeProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for Stroke.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="F:C1.WPF.C1Chart3D.GridDataSeries.BackStrokeProperty">
+            <summary>
+             Using a DependencyProperty as the backing store for BackStroke.  
+             This enables animation, styling, binding, etc...
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.GridDataSeries.ZData">
+            <summary>
+            Gets or sets two-dimensional array of values on the grid.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.GridDataSeries.ContourData">
+            <summary>
+            Gets or sets two-dimensional array of contour data(4-dimensional chart). 
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.GridDataSeries.Start">
+            <summary>
+            Gets or sets the start point of data.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.GridDataSeries.Step">
+            <summary>
+            Gets or sets the step of grid data. 
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.GridDataSeries.Fill">
+            <summary>
+            Gets or sets the fill brush for the meshes facing up(Z+).
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.GridDataSeries.BackFill">
+            <summary>
+            Gets or sets the fill brush for the meshes facing down(Z-).
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.GridDataSeries.Stroke">
+            <summary>
+            Gets or sets the stroke brush for the meshes facing up(Z+).
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.GridDataSeries.BackStroke">
+            <summary>
+            Gets or sets the stroke brush for the meshes facing down(Z-).
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.GridDataSeries.ZDataString">
+            <summary>
+            Gets or sets z-data values as string(necessary for design time).
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.Array2DConverter">
+            <summary>
+            Type converter for 2D array of doubles.
+            </summary>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.Array2DConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether the type converter can convert an object from the specified type to the type of this converter.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="sourceType">The source type.</param>
+            <returns>True if this converter can perform the conversion; otherwise, false.</returns>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.Array2DConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether the type converter can convert an object to the specified type. 
+            </summary>
+            <param name="context">The context.</param>
+            <param name="destinationType">The destination type.</param>
+            <returns>True if this converter can perform the conversion; otherwise, false.</returns>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.Array2DConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            Converts from the specified value to the intended conversion type of the converter.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="culture">The culture.</param>
+            <param name="value">The value.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.Array2DConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Converts the specified value object to the specified type.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="culture">The culture.</param>
+            <param name="value">The value.</param>
+            <param name="destinationType">The destination type.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:C1.WPF.C1Chart3D.GrahamConvexHull.FindHull(System.Collections.Generic.List{System.Windows.Point})">
+            <summary>
+            Find convex hull for the given set of points.
+            </summary>
+            
+            <param name="points">Set of points to search convex hull for.</param>
+            
+            <returns>Returns set of points, which form a convex hull for the given <paramref name="points"/>.
+            The first point in the list is the point with lowest X coordinate (and with lowest Y if there are
+            several points with the same X value). Points are provided in counter clockwise order
+            (<a href="http://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian
+            coordinate system</a>).</returns>
+            
+        </member>
+        <member name="T:C1.Util.Localization.StringTables">
+            <summary>
+            Contains a single static method called InitTables that populates the
+            tables used by the C1Localizer class.
+            
+            ** This file is project-specific **
+            Do not include it in your project. Instead, copy it into your project
+            and customize the copy with the strings you need.
+            </summary>
+        </member>
+        <member name="T:C1.WPF.C1Chart3D.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:C1.WPF.C1Chart3D.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

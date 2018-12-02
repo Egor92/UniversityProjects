@@ -1,0 +1,401 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EkoPort.Wpf" 
+					xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+					xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+					xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+					mc:Ignorable="d">
+
+	<Style x:Key="{x:Type local:MainWindow}" TargetType="{x:Type local:MainWindow}">
+        <Setter Property="Title" Value="Система поддержки принятия решений для эколога речного порта" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type local:MainWindow}">
+					<Grid d:DesignWidth="547" d:DesignHeight="281" Background="White">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<Menu>
+							<MenuItem Header="Файл">
+								<MenuItem Header="Новый" Command="{Binding NewFileCommand}" />
+                                <MenuItem Header="Открыть" Command="{Binding OpenFileCommand}" />
+                                <MenuItem Header="Сохранить" Command="{Binding SaveFileCommand}" />
+                                <MenuItem Header="Сохранить как..." Command="{Binding SaveFileAsCommand}" />
+							</MenuItem>
+						</Menu>
+                        <TabControl Grid.Row="1" HorizontalContentAlignment="Left" TabStripPlacement="Left">
+							<TabControl.ItemContainerStyle>
+								<Style TargetType="TabItem">
+									<Setter Property="HorizontalAlignment" Value="Stretch" />
+									<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+									<Setter Property="LayoutTransform">
+										<Setter.Value>
+											<TransformGroup>
+												<RotateTransform Angle="-90"/>
+											</TransformGroup>
+										</Setter.Value>
+									</Setter>
+								</Style>
+							</TabControl.ItemContainerStyle>
+							<TabItem Header="База данных">
+								<local:DataBaseEditorControl DataContext="{Binding DataBaseEditorControlViewModel, Mode=OneWay}" />
+							</TabItem>
+							<TabItem Header="Природоохранное оборудование">
+                                <TabControl>
+                                    <TabItem Header="Перегрузка">
+                                        <local:EnvironmentalEquipmentEditorControl DataContext="{Binding TransshippingEnvironmentalEquipmentEditorControlViewModel, Mode=OneWay}" />
+                                    </TabItem>
+                                    <TabItem Header="Склад">
+                                        <local:EnvironmentalEquipmentEditorControl DataContext="{Binding StorageEnvironmentalEquipmentEditorControlViewModel, Mode=OneWay}" />
+                                    </TabItem>
+                                </TabControl>
+                            </TabItem>
+							<TabItem Header="Рекомендации">
+                                <local:RecommendationControl DataContext="{Binding RecommendationControlViewModel, Mode=OneWay}" />
+							</TabItem>
+						</TabControl>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+    <Style x:Key="{x:Type local:DataBaseEditorControl}" TargetType="{x:Type local:DataBaseEditorControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:DataBaseEditorControl}">
+                    <TabControl d:DesignWidth="581" d:DesignHeight="270">
+						<TabItem Header="Производственный объект (порт)">
+							<local:PortEditorControl DataContext="{Binding PortEditorControlViewModel, Mode=OneWay}" />
+						</TabItem>
+						<TabItem Header="Перегрузочные участки">
+                            <local:TransshippingAreaEditorControl DataContext="{Binding TransshippingAreaEditorControlViewModel, Mode=OneWay}" />
+						</TabItem>
+						<TabItem Header="Станции контроля">
+                            <local:ControlStationEditorControl DataContext="{Binding ControlStationEditorControlViewModel, Mode=OneWay}" />
+						</TabItem>
+						<TabItem Header="Загрязняющие вещества">
+                            <local:ContaminantEditorControl DataContext="{Binding ContaminantEditorControlViewModel, Mode=OneWay}" />
+						</TabItem>
+					</TabControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type local:DataItemEditorControl}" TargetType="{x:Type local:DataItemEditorControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:DataItemEditorControl}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" Margin="2">
+                            <Button Content="Добавить" Margin="2" Padding="10,3" Command="{Binding AddItemCommand}" />
+                            <Button Content="Удалить выделенные" Margin="2" Padding="10,3" Command="{Binding RemoveSelectedItemCommand}" />
+                        </StackPanel>
+                        <ContentControl Grid.Row="1" x:Name="PART_DataGridContentControl" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type local:ContaminantEditorControl}" TargetType="{x:Type local:ContaminantEditorControl}" BasedOn="{StaticResource {x:Type local:DataItemEditorControl}}">
+        <Setter Property="DataGridTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DataGrid ItemsSource="{Binding Items, Mode=OneWay}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Номер">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Number, Mode=OneWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <xctk:IntegerUpDown Value="{Binding Number, Mode=TwoWay}" Minimum="0" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            <DataGridTemplateColumn Header="Название груза">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding SelectedTransshippingArea.CargoName, Mode=OneWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox ItemsSource="{Binding AvailableTransshippingAreas, Mode=OneWay}" SelectedItem="{Binding SelectedTransshippingArea, Mode=TwoWay}" DisplayMemberPath="CargoName" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Предельно допустимая концентрация (мг/м3)">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding AllowableConcentration, Mode=TwoWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <xctk:DoubleUpDown Value="{Binding AllowableConcentration, Mode=TwoWay}" Minimum="0" Increment="0.01" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type local:ControlStationEditorControl}" TargetType="{x:Type local:ControlStationEditorControl}" BasedOn="{StaticResource {x:Type local:DataItemEditorControl}}">
+        <Setter Property="DataGridTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DataGrid ItemsSource="{Binding Items, Mode=OneWay}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Номер">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Number, Mode=OneWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <xctk:IntegerUpDown Value="{Binding Number, Mode=TwoWay}" Minimum="0" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Название станции контроля" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type local:PortEditorControl}" TargetType="{x:Type local:PortEditorControl}" BasedOn="{StaticResource {x:Type local:DataItemEditorControl}}">
+        <Setter Property="DataGridTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DataGrid ItemsSource="{Binding Items, Mode=OneWay}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Номер">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Number, Mode=OneWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <xctk:IntegerUpDown Value="{Binding Number, Mode=TwoWay}" Minimum="0" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Название порта" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Местоположение" Binding="{Binding Location, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            <DataGridTemplateColumn Header="Размер санитарно-защитной зоны (м2)">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding AreaSize, Mode=TwoWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <xctk:IntegerUpDown Value="{Binding AreaSize, Mode=TwoWay}" Minimum="0" Increment="100" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Количество реципиентов">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RecipientCount, Mode=TwoWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <xctk:IntegerUpDown Value="{Binding RecipientCount, Mode=TwoWay}" Minimum="0" Increment="100" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type local:TransshippingAreaEditorControl}" TargetType="{x:Type local:TransshippingAreaEditorControl}" BasedOn="{StaticResource {x:Type local:DataItemEditorControl}}">
+        <Setter Property="DataGridTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DataGrid ItemsSource="{Binding Items, Mode=OneWay}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" AutoGenerateColumns="False">
+						<DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Номер">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Number, Mode=OneWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <xctk:IntegerUpDown Value="{Binding Number, Mode=TwoWay}" Minimum="0" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Название перегрузочного участка" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Обрабатываемый груз" Binding="{Binding CargoName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                        </DataGrid.Columns>
+					</DataGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type local:EnvironmentalEquipmentEditorControl}" TargetType="{x:Type local:EnvironmentalEquipmentEditorControl}" BasedOn="{StaticResource {x:Type local:DataItemEditorControl}}">
+        <Setter Property="DataGridTemplate">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:EnvironmentalEquipmentEditorControl}">
+                    <DataGrid ItemsSource="{Binding Items, Mode=OneWay}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Номер">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Number, Mode=OneWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <xctk:IntegerUpDown Value="{Binding Number, Mode=TwoWay}" Minimum="0" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Название ППО" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            <DataGridTemplateColumn Header="Стоимость, руб.">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Cost, Mode=TwoWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <xctk:IntegerUpDown Value="{Binding Cost, Mode=TwoWay}" Minimum="0" Maximum="10000000" Increment="1000" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Степень очистки">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding CleaningDegree, Mode=TwoWay}" TextAlignment="Right" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <xctk:DoubleUpDown Value="{Binding CleaningDegree, Mode=TwoWay}" Minimum="0" Maximum="1" Increment="0.01" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type local:RecommendationControl}" TargetType="{x:Type local:RecommendationControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:RecommendationControl}">
+                    <Grid d:DesignWidth="540" d:DesignHeight="205">
+                    	<Grid.ColumnDefinitions>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="*"/>
+                    		<ColumnDefinition Width="120"/>
+                    	</Grid.ColumnDefinitions>
+                    	<Grid.RowDefinitions>
+                    		<RowDefinition Height="24"/>
+                    		<RowDefinition Height="24"/>
+                    		<RowDefinition Height="24"/>
+                    		<RowDefinition Height="24"/>
+                    		<RowDefinition Height="24"/>
+                    		<RowDefinition Height="24"/>
+                    		<RowDefinition Height="30"/>
+                    		<RowDefinition Height="*"/>
+                    	</Grid.RowDefinitions>
+                    	<TextBlock Text="Перегрузочный участок:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,3" />
+                    	<TextBlock Text="Тип перегрузочного участка:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,3" Grid.Row="1" />
+                    	<TextBlock Text="Загрязняющее вещество:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,3" Grid.Row="2" />
+                    	<TextBlock Text="Прогнозная концентрация:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,3" Grid.Row="3" />
+                    	<TextBlock Text="Коэффициент инфляции:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,3" Grid.Row="4" />
+                    	<TextBlock Text="Ущерб. руб.:" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,3" Grid.Row="5" />
+						<ComboBox Grid.Column="1" Grid.Row="0" Margin="10,1" ItemsSource="{Binding TransshippingAreas, Mode=OneWay}" SelectedItem="{Binding SelectedTransshippingArea, Mode=TwoWay}" DisplayMemberPath="Name" />
+                        <ComboBox Grid.Column="1" Grid.Row="1" Margin="10,1" ItemsSource="{Binding EnvironmentalEquipmentTypes, Mode=OneWay}" SelectedItem="{Binding SelectedEnvironmentalEquipmentType, Mode=TwoWay}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Converter={local:EnvironmentalEquipmentTypeToStringConverter}}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+						<ComboBox Grid.Column="1" Grid.Row="2" Margin="10,1" ItemsSource="{Binding Contaminants, Mode=OneWay}" SelectedItem="{Binding SelectedContaminant, Mode=TwoWay}" DisplayMemberPath="Name" />
+						<xctk:DoubleUpDown Grid.Column="1" Grid.Row="3" Margin="10,1" Minimum="0" Maximum="10" Increment="0.01" Value="{Binding PredictedConcentration, Mode=TwoWay}" />
+                        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="4" Margin="10,1" Minimum="0" Maximum="100" Value="{Binding InflationFactor, Mode=TwoWay}" />
+                        <xctk:DoubleUpDown Grid.Column="1" Grid.Row="5" Margin="10,1" Minimum="0" Maximum="10" Increment="1000" Value="{Binding Damage, Mode=TwoWay}" />
+                        <Button Command="{Binding GetRecommendationCommand, Mode=OneWay}" Grid.Column="2" Margin="5" Height="50" Width="100" Grid.RowSpan="6" VerticalAlignment="Top" HorizontalAlignment="Center">
+							<TextBlock Text="Получить рекомендации" TextWrapping="Wrap" TextAlignment="Center" />
+						</Button>
+                    	<TextBlock Text="Допустимое природоохранительное оборудование:" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,3" Grid.Row="6" Grid.ColumnSpan="3" />
+                        <DataGrid Grid.Row="7" Grid.ColumnSpan="3" ItemsSource="{Binding EnvironmentalEquipmentRecomendationItemVMs, Mode=OneWay}" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="Номер">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Number, Mode=OneWay}" TextAlignment="Right" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.CellEditingTemplate>
+                                        <DataTemplate>
+                                            <xctk:IntegerUpDown Value="{Binding Number, Mode=TwoWay}" Minimum="0" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellEditingTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Название ППО" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                <DataGridTemplateColumn Header="Стоимость, руб.">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Cost, Mode=TwoWay}" TextAlignment="Right" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.CellEditingTemplate>
+                                        <DataTemplate>
+                                            <xctk:IntegerUpDown Value="{Binding Cost, Mode=TwoWay}" Minimum="0" Maximum="10000000" Increment="1000" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellEditingTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Степень очистки">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding CleaningDegree, Mode=TwoWay}" TextAlignment="Right" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.CellEditingTemplate>
+                                        <DataTemplate>
+                                            <xctk:DoubleUpDown Value="{Binding CleaningDegree, Mode=TwoWay}" Minimum="0" Maximum="1" Increment="0.01" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellEditingTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Предпочтительность" Binding="{Binding Preference, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+					</Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

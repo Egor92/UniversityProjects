@@ -1,0 +1,1 @@
+double CalcResult(bool FlagExp);

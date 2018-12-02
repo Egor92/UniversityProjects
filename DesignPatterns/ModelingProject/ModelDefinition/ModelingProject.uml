@@ -1,0 +1,4918 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="d129f5d2-eeb1-40ef-ba35-76e30558f52e"
+  name="ModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="61c3f24e-69f9-44ff-b471-baee69363e44"
+        name="Vector"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="2d5149c1-8953-45f9-b1d5-effe8b9c5740">
+            <interfaceMoniker
+              Id="6ee2ee18-dd1b-49bd-af65-0452dc7237fc"
+              LastKnownName="IVector"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="db275534-28cb-41bd-9e14-962084c834b2"
+            name="_values"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b6e39713-6a61-40a8-b273-8c66bf28e61b"
+                LastKnownName="double[]"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="772f4eab-4007-46e4-94b1-34619c0fbfbb"
+            name="Dimension"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="496bc15a-8cd8-4508-b3be-0c531f45c5b6"
+                LastKnownName="int"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1b383ba9-4a17-4215-b4e7-1e2b0ba775d4"
+            name="GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2373a129-857d-4057-846b-8668b3d1292c"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="5d00d819-f731-41b9-b632-71dc802c8da6"
+                      LastKnownName="double"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="378cd187-130c-4bf7-991d-ca95b7050ef8"
+                  name="index"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="496bc15a-8cd8-4508-b3be-0c531f45c5b6"
+                      LastKnownName="int"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1a12ba64-2481-4ed6-b2dc-1f2188666c13"
+            name="SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3143a015-a512-4d71-9606-c19de7113aa2"
+                  name="index"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="496bc15a-8cd8-4508-b3be-0c531f45c5b6"
+                      LastKnownName="int"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a8af38c9-1178-422e-8bde-7c23245cd1f7"
+                  name="value"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="5d00d819-f731-41b9-b632-71dc802c8da6"
+                      LastKnownName="double"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="927cddbd-3f0d-4925-8fff-f9e8241239b5"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0c9245ee-ea5b-4c18-88b6-1b1e75cc8637"
+                      LastKnownName="void"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+        name="IMatrix"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="5b3562dd-b414-4b64-a30d-cbd24d60078c"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="dcdd7f9e-9d14-445e-ab0c-81dbb8d28c60"
+              LastKnownName="IMatrixDrawer"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributes>
+          <property
+            Id="d5996a9b-9564-455c-b9d9-c74e69d24a80"
+            name="int RowCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="fc77b42b-9b4d-4f60-bc70-7371acee94bc"
+            name="int ColumnCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributes>
+        <ownedOperations>
+          <operation
+            Id="860ddf7e-c2c8-4057-91d4-a8f873088fde"
+            name="double GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7d6cf360-4732-443f-bb4b-fbb6fb8fff13"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="42fe7808-5794-4b7c-bc6d-30bfb942e251"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="344cbcbe-40f0-49dc-a786-5e02ba862f39"
+            name="void Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d6237d93-61ab-49cd-8c2e-4b4cd9ae961a"
+                  name="IMatrixDrawer matrixDrawer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fea3925a-2f87-451a-9a85-c08d39a35fc3"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="0db5541b-9b0e-43b6-9068-dd8cbb3cbbbf"
+                      name="DefaultValue"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8d3731b9-a89a-4ac9-8359-d0d37a69314e"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="d5259327-50af-4663-add1-334c6d55274e"
+                      name="DefaultValue"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6d0eb741-6649-4b26-8610-a94b05e3ef9c"
+                  name="bool toClear"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="19d9e880-0a04-4365-9b50-b0632d8b4a7c"
+                      name="DefaultValue"
+                      value="true" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="59ffd366-e63c-4109-974d-2cf94d690dad"
+            name="void SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="40f5f227-382b-4cc9-a929-a37d16f25e17"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="881206df-b660-4546-9e4d-441a652b08b9"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="85ad9593-b1b0-4277-8c54-1e18ca04c966"
+                  name="double value"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="496bc15a-8cd8-4508-b3be-0c531f45c5b6"
+        name="int" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="5d00d819-f731-41b9-b632-71dc802c8da6"
+        name="double" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="6ee2ee18-dd1b-49bd-af65-0452dc7237fc"
+        name="IVector"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="1ed513d5-ef33-4b22-bc5a-3feaa9237476"
+            name="Dimension"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="496bc15a-8cd8-4508-b3be-0c531f45c5b6"
+                LastKnownName="int"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation
+            Id="97ff1539-0dcf-4d21-b88b-1003aa6acc5c"
+            name="GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d045189f-60ac-4fd3-a4ae-a031e275d771"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="5d00d819-f731-41b9-b632-71dc802c8da6"
+                      LastKnownName="double"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="77ce47d6-59b5-4b9b-adfa-675716398f67"
+                  name="index"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="496bc15a-8cd8-4508-b3be-0c531f45c5b6"
+                      LastKnownName="int"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="47f6c26a-c520-45d2-9efb-566d3d4c48b3"
+            name="SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dd08db9d-3e5e-4b28-a139-32e158230035"
+                  name="index"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="496bc15a-8cd8-4508-b3be-0c531f45c5b6"
+                      LastKnownName="int"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1ab8ca32-8294-4396-882f-635aa8025494"
+                  name="value"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="5d00d819-f731-41b9-b632-71dc802c8da6"
+                      LastKnownName="double"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3a90924b-942c-4ce9-912b-6007d83d3fbf"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0c9245ee-ea5b-4c18-88b6-1b1e75cc8637"
+                      LastKnownName="void"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="c11cb22b-e088-46c5-a60c-6281f6e5d2c0"
+        name="RowCount" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="dcdd7f9e-9d14-445e-ab0c-81dbb8d28c60"
+        name="IMatrixDrawer"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="4269edc9-1685-4641-9b19-f9ab220863f1"
+            name="void Clear"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="d4895e41-7247-4b2c-94bf-b81794aff29d"
+            name="void DrawCell"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1387f7e9-8060-485e-a79e-769eab3cf77c"
+                  name="IMatrix matrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="edf85692-2a17-4853-bbbc-d4b264af34fe"
+                  name="int rowIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="30de1773-8265-4fdf-8ad8-d8f22fc75bd5"
+                  name="int columnIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c3426a53-e818-4a32-bc7c-7e743a26f9c7"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="89426538-d9c9-4312-a4d2-2ba0c1810563"
+                      name="DefaultValue"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fdce5371-93dd-481c-819c-e5a76359d456"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="10ca60b6-eda1-41ff-892f-9ac792a3eabc"
+                      name="DefaultValue"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e9ece5f3-96d9-4448-8f42-b6d13b2b8490"
+        name="SparseVector"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="83b419a4-2e6d-421a-9d26-f587a719f5fe">
+            <interfaceMoniker
+              Id="6ee2ee18-dd1b-49bd-af65-0452dc7237fc"
+              LastKnownName="IVector"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="34e8444c-f4aa-4f43-9f80-0613ff9c963c"
+            name="_values"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="a9cca4f2-7993-477a-bae2-36419f8ac9e4"
+                LastKnownName="IDictionary&lt;int, double&gt;"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a26e6ae2-059c-44de-917b-0370bdc86a5e"
+            name="Dimension"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="496bc15a-8cd8-4508-b3be-0c531f45c5b6"
+                LastKnownName="int"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="fd70482e-25f4-4d11-a121-eb5c82cb5c4e"
+            name="GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="78d4a183-f706-43e7-98f1-563179da3b9a"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="5d00d819-f731-41b9-b632-71dc802c8da6"
+                      LastKnownName="double"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cebd2866-58c4-4590-808e-9ecd3f5033a0"
+                  name="index"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="496bc15a-8cd8-4508-b3be-0c531f45c5b6"
+                      LastKnownName="int"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="03621907-a769-46f3-95c4-91ec98cd2c5d"
+            name="SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dcb68948-ac62-47c8-a652-21dc9cd00761"
+                  name="index"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="496bc15a-8cd8-4508-b3be-0c531f45c5b6"
+                      LastKnownName="int"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="25ab780b-0a43-4884-94a2-cb25ab926315"
+                  name="value"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="5d00d819-f731-41b9-b632-71dc802c8da6"
+                      LastKnownName="double"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bd10f778-15e0-40cd-a2d8-96e580c72996"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0c9245ee-ea5b-4c18-88b6-1b1e75cc8637"
+                      LastKnownName="void"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8e4f200d-17b6-4639-be8c-fd8221a7c430"
+        name="MatrixBase"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="3ca2802d-cd5e-4ff0-9954-a28aeb566472">
+            <interfaceMoniker
+              Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+              LastKnownName="IMatrix"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="b69af313-2cd3-4e7e-ab2d-89fa3b713136"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="6ee2ee18-dd1b-49bd-af65-0452dc7237fc"
+              LastKnownName="IVector"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="932c50ae-cf4c-445d-aa05-1180da673e59"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3762a1b3-0679-4e6b-8be3-535ed2bedf14"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="02dda457-3523-487e-afc2-85cc767e3ecf"
+                      name="Lower"
+                      value="M" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="fc32d22f-3189-4b11-aeb6-b19ceb859ae8"
+                      name="Upper"
+                      value="M" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="263f3a0c-9378-4e9d-be3d-e8cb5d5cd864"
+            name="IVector[] _vectors"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="46d9756b-e6d1-46d2-b26a-783bdc9eb20c"
+            name="int ColumnCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="6ee2ee18-dd1b-49bd-af65-0452dc7237fc"
+                LastKnownName="IVector"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b0f43239-014e-401a-b143-e4e54fa1cf17"
+            name="int RowCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="6d739f45-a772-4f85-a8eb-c2e51aa77a53"
+            name="double GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="31bd6391-74da-4d35-9956-9ca155047f90"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="defeb398-f7d4-44d0-90ae-c10e6beeb614"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ed9c1092-cf24-49df-86b1-63fbf6a9f68f"
+            name="void Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a9e89ae6-d2ca-4eaa-b872-263c012be28b"
+                  name="IMatrixDrawer matrixDrawer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dc7ac27a-f195-4f63-b2c8-b059b9c2e9f7"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="d08ff69f-c9ba-442e-a127-a6b02558390e"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="86b948b1-3af0-4290-8cd6-df5540440cf5"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="78810498-df85-4765-a321-ea9abac413ea"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="364e9279-3f25-4db1-b0e6-658f5e69b88f"
+                  name="bool toClear"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="fcc2b358-e719-415c-b011-578be5eca341"
+                      value="true" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b40a2a11-8d1c-43aa-8273-91f47b0743d6"
+            name="void SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ee49a965-1a11-484b-8ecd-510c79809101"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="22dd68ad-3559-4d52-ab6b-ad6647845a6c"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="caefd25c-c183-47b6-a201-58c31e6e817f"
+                  name="double value"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1443769b-aa0e-41ab-8483-b85af985c7b8"
+            name="IVector GetVector"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="13681998-b1e2-4ad3-8c44-c02c8a4434fd"
+                  name="int dimension"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f6058579-6b21-4d09-a634-5b97cce6219d"
+            name="void Clear"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="6a35b2c9-49d1-4e8d-af8f-76474590d2ea"
+            name="void DrawCell"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b97fb2ff-af6d-490d-acb4-d505a2b72109"
+                  name="IMatrix matrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f57865da-af75-4f75-ac92-ef19c7c3cbe9"
+                  name="int rowIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="752e185c-cc88-4348-af49-bc7ea95e5256"
+                  name="int columnIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="df81adff-c858-4147-afc7-70427c582bf7"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="6bd50714-0ff9-4e3d-b87d-e9e5ffec05e2"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dc7d7d2b-ca7c-4eef-af37-5bf42c3ebb4f"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="d0ccb220-df22-4ccb-bb2c-920be7c82261"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3ac3974b-1dae-447b-b635-271ce42d5601"
+        name="Matrix"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="a885cdbe-887b-4076-b54d-1063f92d6f66"
+            isSubstitutable="false">
+            <classMoniker
+              Id="8e4f200d-17b6-4639-be8c-fd8221a7c430"
+              LastKnownName="MatrixBase"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="00c16090-e849-4523-b9b1-e8fae17ce854"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="61c3f24e-69f9-44ff-b471-baee69363e44"
+              LastKnownName="Vector"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="922225b0-ff22-4da4-9ec5-ce04696f6327"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="31307feb-868d-44a7-af24-f437ec338aa7"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="330821da-bc42-4fe7-a750-eca59f573323"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d9fddbfb-8b4b-4969-a435-c31bda621ca9"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="0e70fa95-2c36-4e3e-b4ff-ae7925c63040"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ad3c54b1-f070-49c2-a9c8-9e1807636561"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="b4609eaf-ba94-4326-85f6-f41392ef735b"
+            name="int ColumnCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="d5e50966-574d-4a04-be8e-8526ba7d2db6"
+            name="int RowCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="98b7faf0-cbbc-4e28-b1e0-0e3bae56de34"
+            name="double GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1f7bbe2c-9347-4474-a450-bf059147f53d"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6b86d714-e3f1-4c12-a5f1-c09578f0aa48"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="61aee96b-09c6-44dc-8c8d-4b59858d5ccb"
+            name="void Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b49dc9f0-e7fe-43c2-a92d-679d471bab74"
+                  name="IMatrixDrawer matrixDrawer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5f587ba1-9c0f-4a01-b67f-94e4edd9fb44"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="a920d7cb-8b47-4d3a-8b34-306d4b043d45"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9d44817a-5c59-438c-a761-9495c26d51be"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="5482c4eb-2297-4299-9ee7-d11ef4fee56a"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c108c64c-6c93-4e2e-bbc7-416cb071ac5c"
+                  name="bool toClear"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="a1246cfb-be6e-4030-b0e4-a3e74f5ca4e4"
+                      value="true" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8d635171-f359-4b1e-8bbc-143552b35a1f"
+            name="void SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5381876d-fec8-41e5-95cc-a64c3e9fba2e"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5afb71c1-9830-4358-8a79-34c130cddd2a"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="550704ac-2e59-49de-8615-f7eaed0391ae"
+                  name="double value"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a855eca2-ba7d-4154-a9d4-f675654157a8"
+            name="IVector GetVector"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c7d9351b-5ebe-4839-8851-eedcc80f61aa"
+                  name="int dimension"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4ea958c7-58ea-42b8-a813-ce01c5ac0f5c"
+        name="SparseMatrix"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="0922cd03-74e5-42bc-9040-572850bb817c"
+            isSubstitutable="false">
+            <classMoniker
+              Id="8e4f200d-17b6-4639-be8c-fd8221a7c430"
+              LastKnownName="MatrixBase"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="deb1e8d9-b913-477e-9931-54df8a7abef2"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e9ece5f3-96d9-4448-8f42-b6d13b2b8490"
+              LastKnownName="SparseVector"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9e616097-118e-4c82-a61b-3dbeaa52925e"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="9904fec4-9b3c-4598-8582-49035d7ccd4d"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d4977a4a-ca76-417c-8d53-dd5525f737aa"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1ac3708d-afb8-4f8b-aa5e-e3bda6add484"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="00481318-8453-4713-b26f-733636e06a4b"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="b7ed6d88-e430-4371-aca0-765d2291bf4b"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="d7da735a-586e-4a18-b00a-fbe1362c9da3"
+            name="int ColumnCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="61efabe9-f4da-4883-ba72-51af8112c006"
+            name="int RowCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="01377cea-03fc-4fbe-aa64-1b6d01ceec8e"
+            name="double GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d48b96fb-358f-42fc-9247-96f908ab370c"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="46b66f76-b48f-4486-a962-6efe5efa1920"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="37771ac6-9742-410f-8ef9-5330a7c4a6f7"
+            name="void Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="26c421c9-b4f3-4b81-a0dc-d2c78deda2eb"
+                  name="IMatrixDrawer matrixDrawer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="31b44c55-3558-467c-af7f-0d93ace2917d"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="98f220eb-be33-4752-aa91-c8023ba98c8d"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f1053da6-8dcb-4b40-b44b-f730d0cf429b"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="4c01862f-11b2-4e53-995b-1f8c9395a6da"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ae1589b4-1158-4530-9af7-5b430c9c6aa5"
+                  name="bool toClear"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="8eef2e38-55fe-4c50-8aec-09f24a581036"
+                      value="true" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3498c06a-f86a-4c7e-9023-90ed7ee433bf"
+            name="void SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ae5b130b-ff27-4565-8fc1-390badde3f23"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="40308efe-b7be-4614-82ec-e1f2ec049de3"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="72054cef-9727-40e9-9abc-e2fb37d39fd0"
+                  name="double value"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4ff747ab-ef61-4453-9d30-85aa291ce029"
+            name="IVector GetVector"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0c0b5715-b62d-47c8-a6be-f04b8a11a4e0"
+                  name="int dimension"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="da750ccd-f956-4d23-93e0-cb7a30a7aabd"
+        name="CanvasMatrixDrawer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="994b358e-0cf6-46e3-a4a5-7f1b41330181">
+            <interfaceMoniker
+              Id="dcdd7f9e-9d14-445e-ab0c-81dbb8d28c60"
+              LastKnownName="IMatrixDrawer"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="2ca563a9-286f-48bb-9a6e-600f54742707"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="6832049a-15da-4fba-b243-94da4afbfbea"
+              LastKnownName="IMatrixVisualizationScheme"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c2be82d-2934-4b17-a053-9c894e1500df"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8ae6b5f8-32cb-4df1-8319-2b4bcd67f655"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="180c127a-81e6-488e-be4a-4fdc264bb5e6"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e2acc983-5bcc-4e23-ac18-712bd5b4eb03"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="0e3f5269-b8fc-4fa3-a5d6-25db95bfced7"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="eb18bd26-8cd7-498c-9022-77d4b4ba0bc6"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="0f4b173b-fd98-4246-8dfd-2a768b12b9c3"
+            name="DropShadowEffect DropShadowEffect"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="b70161db-2aa4-4cc9-8c80-a6a8ee91e6e1"
+            name="Canvas _canvas"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="35a55eae-da28-4068-af68-815bc888d3f7"
+            name="IMatrixVisualizationScheme Scheme"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="f810232d-fc9d-4273-9ca1-e28efc84969d"
+            name="void Clear"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="1a90d4e0-d376-456c-becf-1606b8150e12"
+            name="void DrawCell"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fedcaa58-e22d-4c5a-abd9-65c92049c0f5"
+                  name="IMatrix matrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5b09e788-2a45-470e-8e92-60c8e9fa159a"
+                  name="int rowIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d71615a9-3249-4d29-9553-ccc8541b3057"
+                  name="int columnIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1a2a2983-caa4-4f09-ba81-780daaae1062"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="5e1097f4-8c5d-48ad-9c63-697bf469f7b3"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="70edb932-c88d-43e1-97b5-6a7fe230c0a5"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="09fa4954-4866-4306-96e8-e45941aa1ff4"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="6832049a-15da-4fba-b243-94da4afbfbea"
+        name="IMatrixVisualizationScheme"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="bbeedbfd-f6ce-4c4d-b482-421a9c5b939b"
+            name="double ItemSize"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="41e9c830-d464-40f2-8333-0dc4a47e0125"
+            name="Brush MatrixBorderBrush"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="e0aed7e1-d179-4add-8e1b-2d48ce9a7e39"
+            name="Brush MatrixBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="288a40b8-0c63-402f-9b45-1c89b801ec5b"
+            name="Brush ItemBorderBrush"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="691966fe-7427-4281-85f6-70c9dd463866"
+            name="Brush ValueItemBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="8ce86d34-ce61-40bd-97af-8c99fe027d6b"
+            name="Brush EmptyItemBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="063931b6-e2ee-4970-971e-aad1feb96478"
+            name="bool IsShadowVisible"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributes>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="de8132f8-dd06-4135-9603-4ab19d616860"
+        name="FirstMatrixScheme"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="ed89c23a-5102-45e5-aa19-131dc8b6945f">
+            <interfaceMoniker
+              Id="6832049a-15da-4fba-b243-94da4afbfbea"
+              LastKnownName="IMatrixVisualizationScheme"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="e75daff0-7430-48a6-9a30-e59521ccf631"
+            name="bool IsShadowVisible"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="0f47056d-6369-40bb-ba0b-25c52cecd44f"
+            name="Brush EmptyItemBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="8ec38b53-445f-4aaa-8662-f19127fff700"
+            name="Brush ItemBorderBrush"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="490de1b5-2f6b-46b7-bdbd-9b762a4e5447"
+            name="Brush MatrixBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="f2e46636-c07a-4ce2-9dd8-efa44013be48"
+            name="Brush MatrixBorderBrush"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="d494c630-efe2-492e-8aae-cf4d9b640494"
+            name="Brush ValueItemBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="b4204c97-8085-4233-b0dd-1197b9b9fed0"
+            name="double ItemSize"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2fbe0bb2-13e7-4780-a915-9a8528171250"
+        name="SecondMatrixScheme"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="1d83b053-5a1c-4b45-8fc6-5575bdc48316">
+            <interfaceMoniker
+              Id="6832049a-15da-4fba-b243-94da4afbfbea"
+              LastKnownName="IMatrixVisualizationScheme"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="028ec695-86e3-42ea-8559-23a5ef0507e0"
+            name="bool IsShadowVisible"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="4ab1988b-9567-4203-b5d6-d796261aafcf"
+            name="Brush EmptyItemBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="1a549fb1-8355-4ca4-962c-62fbeeb73ae7"
+            name="Brush ItemBorderBrush"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="1a43dc0a-61b1-4fbc-9499-c1dd8768e104"
+            name="Brush MatrixBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="45f1ce91-30fc-49d0-91a5-726f9efc4bdc"
+            name="Brush MatrixBorderBrush"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="4d0f61df-9219-4369-b611-d8e44c6fb39c"
+            name="Brush ValueItemBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="8a621a4c-59bd-4ef9-939d-d5d6fdba057e"
+            name="double ItemSize"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="50bf4cfe-396e-4e76-9fc8-e67cf70b3eb6"
+        name="ThirdMatrixScheme"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="3c9fc465-e301-4c82-a36c-8970db474030">
+            <interfaceMoniker
+              Id="6832049a-15da-4fba-b243-94da4afbfbea"
+              LastKnownName="IMatrixVisualizationScheme"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="e86d7496-489d-4c7f-ba6b-01e9a06c7bf5"
+            name="bool IsShadowVisible"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="498f4642-477d-40d7-b896-bac507cc9d71"
+            name="Brush EmptyItemBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="73e3fbe1-f83d-4f26-ac8e-9031552ab3e8"
+            name="Brush ItemBorderBrush"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="7538fd08-938b-430c-9073-aefde23a16c9"
+            name="Brush MatrixBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="886ebe68-a18d-4445-bb14-d5ef0fbafefe"
+            name="Brush MatrixBorderBrush"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="41ba077a-7e8b-4f29-b044-353ae411dccc"
+            name="Brush ValueItemBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="8e1bfe3e-d2ec-4443-953b-8f806c2faf29"
+            name="double ItemSize"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f5072d8e-9a76-48a1-89c5-8ac420223761"
+        name="FourthMatrixScheme"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="32e68355-d735-4a43-bcac-9321187a7960">
+            <interfaceMoniker
+              Id="6832049a-15da-4fba-b243-94da4afbfbea"
+              LastKnownName="IMatrixVisualizationScheme"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="adcb54bd-986f-464e-8cb8-1eba3a50dc11"
+            name="bool IsShadowVisible"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="099b0175-7132-4a85-b17d-d81153ceaab7"
+            name="Brush EmptyItemBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="e0660b3b-d5f4-435e-91dd-ab8d1e5e7db4"
+            name="Brush ItemBorderBrush"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="b7d39377-4697-4632-8cce-f2f0631c92a7"
+            name="Brush MatrixBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="c390c104-7c10-4313-88dc-4b1b10563905"
+            name="Brush MatrixBorderBrush"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="2104c88a-f049-4701-8959-909e4f48a118"
+            name="Brush ValueItemBackground"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="c5de7e28-0911-4770-83b4-8a8754e959cd"
+            name="double ItemSize"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="af81f8dc-8258-4c2b-bece-77768209e17f"
+        name="MatrixDecorator"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="a0998505-f01a-4e95-ac67-b84513f93253">
+            <interfaceMoniker
+              Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+              LastKnownName="IMatrix"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="eee84198-a16d-442c-8f7e-9d0a684447a9"
+            isDerived="false"
+            sourceEndRoleName=" "
+            targetEndRoleName=" "
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+              LastKnownName="IMatrix"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ff90dceb-2df3-4160-a2ae-b446a0ad15a6"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="137c7987-ddf3-42d8-bb7f-39221fc2b964"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d734b3e7-48af-4226-8464-3304e008d67e"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="50b3e6b4-20e1-4277-8873-850aa1aafc26"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="af7cc820-6123-4814-be1d-57cc2203916c"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="069214e1-388d-4540-8f7d-b5d049157d12"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="bc5aa144-0d30-4fed-82bc-2dd938f5e377"
+            name="int ColumnCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="684d64ed-657a-411c-94aa-cdaf8699c749"
+            name="int RowCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="75db1506-9b08-439f-a6fb-c29f01f6ac93"
+            name="IMatrix SourceMatrix"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="9dc528c8-ac61-4805-b3fb-9a35be8cac68"
+            name="double GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1bd5db1d-7ef2-4464-b5bd-f66b82c7b034"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a7d5b3de-7bf9-4487-a54a-0f8f9e94f681"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="150e69b9-3cb6-420d-bae1-e5f13a6c4e97"
+            name="void Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6cbccf1e-71cc-47f4-be65-19923b9d6077"
+                  name="IMatrixDrawer matrixDrawer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f90b3d44-c306-4d88-9338-12c3de3b9de7"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="e0480fcc-2658-4eee-9793-930d71e7d019"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d655ea0f-a00d-4972-b507-04c74d8ab7f9"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="18b754e3-53e8-4b9d-a4d4-59b0120a7647"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="88500326-f917-48c8-a127-6c9e12a0549c"
+                  name="bool toClear"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="6be57a48-f997-4e34-80d9-324c32e9f43e"
+                      value="true" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="88ad4ca6-856a-4d13-9e42-d0e5b3652ec9"
+            name="void SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6b8de6c8-f697-4aaf-a407-f61a02296400"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cb019d2c-4f9e-44b1-bef1-9aa741c1c9b6"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d2a9159b-6c31-4be1-aecb-83309b70a4c3"
+                  name="double value"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="37a50d47-f9af-429f-b520-ce4b0a9b79eb"
+            name="IMatrix GetOriginalMatrix"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="186b2d04-5eb6-401d-b33d-63baa1406f28"
+            name="void Clear"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="86846ee8-b34f-49a3-823e-dd068c8fc191"
+            name="void DrawCell"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="67b78522-4352-4861-aeb1-a699db8c0045"
+                  name="IMatrix matrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a4bde5ee-d065-4bd1-aa33-b333904e1fe3"
+                  name="int rowIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1c358afa-b738-4987-97ec-d4b8a036d625"
+                  name="int columnIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2076e3c1-59f9-43b9-9be7-575cd5284046"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="a7ecc6d5-8742-47bf-9255-1788fc63d18b"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1936c848-e632-435e-99e5-1efb9849acaf"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="f6db7f65-222c-4094-88f9-75f96a4f00e9"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1db641da-aa56-432a-aa5c-9b5b6a8a91f2"
+        name="RowSwapDecorator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="7b615a68-1cb9-4a7b-b1aa-9d3b53e42743"
+            isSubstitutable="false">
+            <classMoniker
+              Id="af81f8dc-8258-4c2b-bece-77768209e17f"
+              LastKnownName="MatrixDecorator"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="2c0aa125-b67f-4431-b691-7d845d650a1b"
+            name="int _i"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="c70e115a-0b90-428f-8a57-1ea94f87b104"
+            name="int _j"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="5682331c-9ea3-4a67-a257-6acfc6a07e3c"
+            name="int ColumnCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="e5f57362-8cab-426e-a316-26dd4f3734f7"
+            name="int RowCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="a0dcc449-f8d4-452f-bd84-61af56040de0"
+            name="IMatrix SourceMatrix"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a377bbec-e4e5-41e9-9edb-f9f70fed5c4f"
+            name="int GetActualRowNumber"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ed9dc63a-baf5-48ae-9401-b99ce2575345"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f9f36dab-0883-44b1-9d30-8fc0e623fe85"
+            name="double GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5e112430-da58-4a45-8cc7-d601e47e330f"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c107186e-c1ed-45ba-989c-b09febb94309"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="31db86be-02e6-4ed5-8970-64d2237e51b6"
+            name="IMatrix GetOriginalMatrix"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="baf90e97-cf96-4286-b677-2da4fb845683"
+            name="void Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="060ec366-cbcd-485b-b581-16c630e3b569"
+                  name="IMatrixDrawer matrixDrawer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="81888eff-7e4c-4238-a50d-b75d29861e46"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="fc9ff8a2-b42c-4223-8c8a-96258e8c5d11"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9d57a9f2-3324-4549-b58c-3d1142e95336"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="f2530c7b-65c9-41fb-8ae1-c6532cafd577"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5c50c42f-94ab-4c3e-9976-a531a4b77770"
+                  name="bool toClear"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="4fa7bc16-2793-4867-9cfe-a63941bc9cdc"
+                      value="true" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5c3ea706-78e9-4a06-9ca2-196cd3b81243"
+            name="void SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e3dbd72e-1077-4f53-8afe-31bcbf688443"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="234485f7-3eee-4fb4-863a-d106ce03f7f7"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c39b831a-71d3-4609-be60-94fb4af2bdd2"
+                  name="double value"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d3bdd58e-c868-4924-8b22-fc65cac6af5f"
+        name="ColumnSwapDecorator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="b0b0d765-646d-46df-8f11-86e9fe5b5457"
+            isSubstitutable="false">
+            <classMoniker
+              Id="af81f8dc-8258-4c2b-bece-77768209e17f"
+              LastKnownName="MatrixDecorator"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="7e3f6f5d-6a3c-4ce0-9267-ba83745b8818"
+            name="int _i"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="0d94d2a5-c1aa-4808-99ac-dcceb47e62df"
+            name="int _j"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="b918247b-90c8-4ea0-bc44-002fa7707190"
+            name="int ColumnCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="4ddc2430-8fdc-4aa7-a278-9d124eb1d3f6"
+            name="int RowCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="6d43d8cf-69fc-4f22-a176-366cabc520d5"
+            name="IMatrix SourceMatrix"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="71e429ae-a8cc-4a19-9002-9b07841f6f28"
+            name="GetActualColumnNumber"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dec3dd3c-4ac4-4e90-a0f1-fcf7ec848402"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2635af7f-a653-4510-9edc-8cf382a119d2"
+            name="double GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8fa0516a-908e-4c4c-8ba3-c8a5f3704e14"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e6abaf6d-604b-49da-94d4-016c150b7ce1"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="690519e0-96cc-444d-af22-61c2c78c6de1"
+            name="IMatrix GetOriginalMatrix"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="b27d258c-1436-4426-bdc6-6dec989395ca"
+            name="void Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="64b80e59-002e-48ce-b6c8-dacd0033ffb4"
+                  name="IMatrixDrawer matrixDrawer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3624aba8-7bff-489f-a0c0-58f3ae802d96"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="c942c4a1-31f4-42d6-b093-7d3c29d89649"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0c19c4a8-c678-496e-baf4-635b5553b76e"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="15270756-642b-4a52-9904-10d8a549d658"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="115c0733-e165-4fb8-8674-2467650fbfc7"
+                  name="bool toClear"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="4f0f8fe7-ff89-466f-8a2f-38ffbf98e784"
+                      value="true" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7cc32747-5b9c-4fdd-aadf-3009782c838f"
+            name="void SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="60d74a11-d0bb-4ac9-a11c-ef60902795ff"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="856281fd-a4c6-4654-b08c-e7629eeebd69"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b9e9893a-d944-4e5f-ae25-f6991176a0ec"
+                  name="double value"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8f001890-a648-44c4-b959-c3633be22dbd"
+        name="TranspositionDecorator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="aa75fa5f-a301-44f3-ae71-c75d940b864c"
+            isSubstitutable="false">
+            <classMoniker
+              Id="af81f8dc-8258-4c2b-bece-77768209e17f"
+              LastKnownName="MatrixDecorator"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="bcce6795-fa43-4b44-af97-28bbc10d5f8c"
+            name="int ColumnCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="821c67cf-839d-4127-bbb8-a7c7391094bb"
+            name="int RowCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="11a61bc0-0f74-405d-8387-83d138c7de54"
+            name="IMatrix SourceMatrix"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="facd5acd-92ae-4932-ac22-3bdd2be4c069"
+            name="double GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e37eb772-d503-4042-b3f6-cbe646cc4a5d"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ad7709bc-40bd-497c-81c3-09635bbe3721"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7005d75c-ec3a-44a9-b5c4-1b0e72a2c3e0"
+            name="IMatrix GetOriginalMatrix"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="f033caad-116b-4d52-8040-cf5d7bed995b"
+            name="void Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="de598f6e-f8c6-4a0c-984d-5eabebb16c7e"
+                  name="IMatrixDrawer matrixDrawer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e0b63745-2157-402f-aed1-f0b598363126"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="3dfa327e-9307-40ae-baef-56856637435b"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5493788b-bbde-45b0-8618-2aca9fe71d29"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="bf16b28f-9be0-41ec-afdf-17f0406701a7"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5fd3f78e-4ed2-41be-a249-a1adff49df07"
+                  name="bool toClear"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="5b37c0a9-fb1f-4435-9bd1-3491daea4a27"
+                      value="true" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="110a2952-4525-49a2-aeae-4c9e958f614a"
+            name="void SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="de860678-b1cb-4670-9a65-92b715364239"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1ba05250-26d6-4742-9fa8-15e7d4845602"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="96d0c17d-3c89-49a5-a226-2417199f0bf6"
+                  name="double value"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="cfa2d25e-b85c-4ae8-b75b-c1bea7f55267"
+        name="BrightCanvasMatrixDrawer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="25acae7c-59a4-4046-8f92-a88347692542">
+            <interfaceMoniker
+              Id="dcdd7f9e-9d14-445e-ab0c-81dbb8d28c60"
+              LastKnownName="IMatrixDrawer"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="c62ad4e5-6f58-49f2-ad01-5b8cc46f8363"
+            name="DropShadowEffect DropShadowEffect"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="0e800d54-b4d2-4b4c-8760-3ac53fd96bd0"
+            name="Canvas _canvas"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="c2840d1b-a893-4b8e-8921-d17089c7547f"
+            name="IMatrixVisualizationScheme Scheme"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="af6f546a-81f3-4be0-aabd-b6979eeb2732"
+            name="IMatrix _lastMatrix"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="3a011390-a699-4365-9128-59811cd8514c"
+            name="SolidColorBrush _borderBrush"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="697bf815-a237-4bda-a391-5bfa780b42c0"
+            name="SolidColorBrush _background"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="ac986f79-1e99-4ad2-bf42-f4f26112c4c9"
+            name="bool _isShadowVisible"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7c254d46-44fc-48d1-a027-810f20510dad"
+            name="void Clear"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="5e9c7170-b1c5-4f13-97c5-c72ac26b7346"
+            name="void DrawCell"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="96cc6196-b41e-41e2-a798-36a4decb5bc0"
+                  name="IMatrix matrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="02309708-a5eb-49da-98e4-7e58e10e9313"
+                  name="int rowIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6c0a4f4d-91d5-48b3-bccb-25b81d8edd9b"
+                  name="int columnIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="67288dc5-fc83-4cc4-b350-c24e46669696"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="bcd49b96-7ab8-4ccd-b500-0564d9fb207d"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f8936758-b936-4ab9-b116-dc85d12e0bf4"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="0572b8ac-fd38-4040-bb55-7176d191cf85"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1447f988-56a1-4311-aa09-76116d5cd478"
+            name="void ChangeScheme"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="beea65e3-c4ac-41e4-bca8-cd2d24f0aa93"
+                  name="IMatrix matrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="60b11204-c948-44b4-bf15-260a1ab83e41"
+        name="VerticalMatrixGroup"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="58ddc8f9-32cc-48a1-86c2-7bb8e9d21062">
+            <interfaceMoniker
+              Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+              LastKnownName="IMatrix"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="045cacdb-6521-43ef-909c-105be2e8ac31"
+            isDerived="false"
+            sourceEndRoleName=" "
+            targetEndRoleName=" "
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+              LastKnownName="IMatrix"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="58bd06ba-a5a5-4b9c-9ba8-bf58114599e4"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aafce5c9-b2ef-4a08-9f77-b2a48b2eabb6"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="73766940-c31e-4b2c-b544-0b4c2e656f94"
+                      name="Lower"
+                      value="M" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="5318e5f0-e453-48ad-a685-db893a3f9ca9"
+                      name="Upper"
+                      value="M" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="2cd85e7d-e010-4d98-8578-c41b8adf2632"
+            name="IList&lt;IMatrix&gt; _matrixes"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="7d164df6-9b37-458f-9475-c14f5de9e196"
+            name="int? _rowCount"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="0654e216-18a8-472b-9d34-58b01434fdb3"
+            name="int? _columnCount"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7c912a88-e3ee-4499-ae4c-81bda6e91d63"
+            name="double GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ba46f11e-91b1-498d-b7a5-74c096d87421"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5446ed60-2af0-44bf-8291-1cc14f22ac2e"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="97dc4276-3fa7-492b-86a0-a228500d8a4c"
+            name="void Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="659531db-2d3a-4f46-84fd-d75fde0a9996"
+                  name="IMatrixDrawer matrixDrawer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9aa89996-9b52-4d29-96e6-1cb77389db69"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="77b39f3b-a1d6-47f9-8bcc-6c792d62940b"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aea46aff-8fc6-471f-b7d1-110a6a497b0b"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="f5a3321f-2234-42b8-9a68-7599618aeef9"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="71c94484-d81d-4f5e-82d8-ee222984c95d"
+                  name="bool toClear"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="3081d1df-7212-473b-9651-45555651d0df"
+                      value="true" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="99d3a147-dcf8-4f2b-af6f-fa3014a99641"
+            name="void SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e7467291-169f-4d23-bca3-144ddb36ab81"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="08bab85c-53f5-492a-910d-53465080ef83"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="99d42675-2bde-4a4c-b2ef-a9c07dcfa4cb"
+                  name="double value"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="049e9afb-2f7b-40b0-bdaa-f395a7e993a8"
+            name="int GetRowNumberInSubmatrix"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="00c44480-2333-4995-8c87-a48b8f2b74a1"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0a8ea245-9be3-4ff4-9a14-ed7cdfc01235"
+                  name="IMatrix submatrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="085623ea-40f8-4b13-b886-1859d4e900d0"
+            name="IMatrix GetSubmatrix"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6050128d-486c-4086-88f2-f49d0cfff890"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="85999e1c-6633-4018-a406-8f2771cb9ef8"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e86e4ab5-a775-456e-9140-06759a6192c4"
+            name="bool AreIndexesInMatrixBounds"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c9706b90-af71-4674-b7ba-022c119e104f"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cbfd6e47-4b8e-4a9a-8ec1-d3c9b610cb9a"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e1c9b651-6b04-41cf-9ea5-1373cbde35f8"
+            name="void Clear"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="0479a620-2bb7-43a8-a5a0-e1bc8de8a87b"
+            name="void DrawCell"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c6dd6f6a-1202-4628-b175-7848f09365a5"
+                  name="IMatrix matrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6a9c04bd-0704-4e89-b972-a97d3f39a87a"
+                  name="int rowIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="64a2a115-e152-4df1-a812-86ab967b968a"
+                  name="int columnIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8fd18cea-1d3b-4e07-aeb4-d3c11ff22567"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="175e47c9-ad25-4913-9eb3-bb3f467623ab"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bcd66638-f333-40f1-b58a-95b114fe0d82"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="b02f98ab-067e-47ea-9e43-c0c9e2d2bf08"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ce456c2a-f51f-4fc1-af17-6f39dbb5682f"
+        name="HorizontalMatrixGroup"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="bc3808e4-50a5-40e1-9c78-96ee8f43f773">
+            <interfaceMoniker
+              Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+              LastKnownName="IMatrix"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="03823d6e-0e1f-459d-8bf4-a3fe86379863"
+            isDerived="false"
+            sourceEndRoleName=" "
+            targetEndRoleName=" "
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+              LastKnownName="IMatrix"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1a3b3f82-360c-4002-8af2-dc907d8492d6"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f990a0dc-efca-4d7e-b9d8-b8b2934ebcbb"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="7a26dc1c-b269-4859-be73-2444a3eb2953"
+                      name="Lower"
+                      value="M" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a7f151d5-a4d9-4b85-8935-6562c640aec3"
+                      name="Upper"
+                      value="M" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="d614c382-3208-4e16-bc7c-de9982ffddbe"
+            name="IList&lt;IMatrix&gt; _matrixes"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="fd8fe126-46da-458f-b438-2a80615dc384"
+            name="int? _rowCount"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="501c5060-c24b-4c66-b6df-4decba359a8f"
+            name="int? _columnCount"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="ac6d935b-c680-4fad-9f83-1f5ce6e684ab"
+            name="double GetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="69ab8a42-829f-4a4b-9e8a-98cb503a87c3"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="927bb7d7-83f3-4bc2-8e5b-9f4884a22f4a"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="41de8675-8213-406d-9a2e-b9b08bb9666e"
+            name="void Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cf097fe6-bba3-4316-b57e-72a2a41f1908"
+                  name="IMatrixDrawer matrixDrawer"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c1555ed5-34f7-4005-b4b3-db50c5319c93"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="d0426ad0-7453-4ac6-85bb-e422d4550776"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="498a34f8-c30d-473c-bf44-25ece89974cf"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="07665051-89a7-4de4-bfc9-a116a2bc4069"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6d56fc79-d98d-41b8-b711-7dd3ed550a14"
+                  name="bool toClear"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="376ad9e0-53a4-47fd-9faa-ddc593c364fa"
+                      value="true" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ea4ed8a2-0768-48e8-bae5-8bb6389f9125"
+            name="void SetValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="53a3e143-9e0d-410f-8273-48d63fe29f7d"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="047f585a-97cc-42e9-94d9-9c3937be1b53"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9aaf2aaa-31e6-4350-825d-37d74a52f5a1"
+                  name="double value"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d26365d6-9dbb-4272-baaa-7443a5a81031"
+            name="int GetColumnNumberInSubmatrix"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="441bc0e3-0cbf-4939-a07b-3ec54fa99b58"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e9f2f46d-6ab8-4f4e-aa78-43f00a0f428e"
+                  name="IMatrix submatrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="918fe37f-6f6c-42a8-b1d0-7e747ccbdcd4"
+            name="IMatrix GetSubmatrix"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="feda495d-42bd-410b-b7bc-68f443b3f5ec"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a66ae8cb-979c-4443-962e-e343c58dd9b8"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="dd9b9de2-0333-4d20-9efb-0f487cf02aa6"
+            name="bool AreIndexesInMatrixBounds"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="01fdea1b-c93e-494c-9a8c-01d427426671"
+                  name="int rowNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="26e8ba80-0eee-482c-a31c-f50589682f5b"
+                  name="int columnNumber"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a5a124a4-35d5-422b-9338-411af23d8989"
+            name="void Clear"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="c11217d4-d7d0-4bd0-bcfa-296758a6d8e7"
+            name="void DrawCell"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="86f32e97-fb20-467a-9055-17f7f6c513b7"
+                  name="IMatrix matrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="44ea6908-0753-4258-9530-99616e88017c"
+                  name="int rowIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="07b661da-d0ad-45bb-a5c3-fc9a5b542553"
+                  name="int columnIndex"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b63e1403-7dcc-4d79-88fd-9b635e2faabf"
+                  name="int startRowIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="bd952e1b-953c-42cf-adfc-04e25d2f9a28"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="02a46802-5e61-4347-a7db-ea8954f1b4d1"
+                  name="int startColumnIndex"
+                  direction="In"
+                  isUnique="false">
+                  <defaultValue>
+                    <literalString
+                      Id="153d20b9-06c9-4a87-ac40-f6f31a53cf06"
+                      value="0" />
+                  </defaultValue>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b6e39713-6a61-40a8-b273-8c66bf28e61b"
+        name="double[]" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="0c9245ee-ea5b-4c18-88b6-1b1e75cc8637"
+        name="void" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="a9cca4f2-7993-477a-bae2-36419f8ac9e4"
+        name="IDictionary&lt;int, double&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="447fc5ed-0ece-466d-97ac-34bda1f49dbb"
+        name="MatrixStatistics"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="ddb994ec-aa75-43a6-a620-bd193be2d79c"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+              LastKnownName="IMatrix"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="56e7bb43-a7cb-4589-9f3c-9e42b5e42266"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5fdbe0e1-64a8-4ee5-a63e-9c46e3ad1690"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="82126d0d-55dc-4208-be1d-b59776bcde5d"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="97eafabe-3225-4af7-af38-625a7e0219a9"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="01a1fe95-3c2f-49a4-b604-639012169181"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="dd433235-ac15-4aa9-8fe1-06781456d615"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="a5dbc654-5956-4d11-bc5a-89660d8aa982"
+            name="IMatrix _matrix"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="1e0e55bb-df8d-4cde-a110-0a67d43eb504"
+            name="double ValuesSumma"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="d53e4229-e89c-4c3e-a97c-0ba4fc569536"
+            name="double AverageValue"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="1c597c1a-ffae-4036-8a2e-bf3e50f5ef86"
+            name="int NotNullValuesCount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6faffeb6-99b2-43fa-8d84-2ce4bf867b80"
+        name="MatrixInitiator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="698abd43-f969-4a78-9346-420210eb511a"
+            name="Random Random"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="3b1ec394-4c5b-482d-accc-c615962150a0"
+            name="void Fill"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6c1a58cd-f370-4d03-8090-5b48616bbc43"
+                  name="IMatrix matrix"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e64eb538-ee62-4272-9795-443e269c470a"
+                  name="int notNullValuesCount"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="655cbec2-7991-48e1-9087-7fd7f9d6d474"
+                  name="int maxValue"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="9d1f7791-78e5-408c-9e7b-cf3496195e68"
+        name="ICommand"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="95c10775-aa3c-4232-9f14-7d0bf8e73c55"
+            name="void Execute"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d51b75c1-4140-462d-9680-2c753ccc8e31"
+        name="Command"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="cb912cad-177a-4961-9d12-15118335d5cd">
+            <interfaceMoniker
+              Id="9d1f7791-78e5-408c-9e7b-cf3496195e68"
+              LastKnownName="ICommand"
+              LastKnownLocation="ModelingProject.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="96473e8c-6582-4412-ad23-bcaa597ed308"
+            isDerived="false"
+            sourceEndRoleName=" "
+            targetEndRoleName=" "
+            isLeaf="false"
+            name=" "
+            isAbstract="false">
+            <classMoniker
+              Id="93827c02-4207-40ab-a4a6-a01762934ec5"
+              LastKnownName="CommandManager"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="28318e84-21f1-4ca7-ba62-56bdfcc2e695"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="51e3b7ac-7215-4981-8a7a-50fc5236a80f"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="690da980-3cab-4c72-8b51-24202b33df04"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="939d8393-1e78-4845-8144-19f345a374b3"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d2030263-c770-4131-82e2-200ab6a530d5"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="cdcbd86c-4b69-4386-ac14-54723ea6bfee"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation
+            Id="fa10b30b-e004-4936-900c-f6fda567b0e8"
+            name="void Execute"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="93827c02-4207-40ab-a4a6-a01762934ec5"
+        name="CommandManager"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="4cef2987-ae32-47bf-8085-a7998fb1e9fd"
+            isDerived="false"
+            sourceEndRoleName=" "
+            targetEndRoleName=" "
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="9d1f7791-78e5-408c-9e7b-cf3496195e68"
+              LastKnownName="ICommand"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3a6a4fd1-454a-442a-9c64-88840139ac00"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d44fdbde-3c77-466a-9aa0-6923e4d7ce3d"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="99bd4484-544a-4b86-b1a8-b332e1fc5393"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c76bb0fa-04c2-4ed7-8aca-76f7c38a3bf7"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="770a1523-a191-469e-940b-92e7bd916e4b"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c3c06c55-0fd5-4cb8-a094-d26194f8dd58"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="92603bf4-53ac-4467-be6a-db4bb0904544"
+            name="CommandManager _instance"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="997ac1cd-ebbb-4e59-9f10-201b0b8567bf"
+            name="IList&lt;ICommand&gt; _commands"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="15fc76f9-d228-41b6-87ca-a9f0010681b9"
+            name="CommandManager Instance"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="649ddce0-c1ce-499e-9485-1e1eb3ddb573"
+            name="bool CanUndo"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="90cecec9-25cb-42f1-b3c6-fb1330ab0799"
+            name="void Register"
+            visibility="Package"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9cdfc423-56c2-4294-a69d-268dda08eedb"
+                  name="ICommand command"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="68a1b30d-e1a5-45c7-bf36-819aec6393cf"
+            name="void Undo"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2e5d89e6-d9f5-4a21-b5a4-be9c516df00a"
+        name="Ref"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="0991bcf0-1741-4998-82b7-f7433911cbc9"
+            name="Func&lt;T&gt; _getter"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="92b4bd65-4aca-488c-80c8-fd8e49317fec"
+            name="Action&lt;T&gt; _setter"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="38c8fa02-39d5-41b0-b233-cb2af702f8dd"
+            name="T Value"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ecab75c0-d34f-420f-ba6f-6bed091a525e"
+        name="InitializeAppCommand"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="47ba088f-5393-448b-8df4-feec2ac7ba23"
+            isSubstitutable="false">
+            <classMoniker
+              Id="d51b75c1-4140-462d-9680-2c753ccc8e31"
+              LastKnownName="Command"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="b05fcda8-a65c-44ae-9899-205efc36772f"
+            isDerived="false"
+            sourceEndRoleName=" "
+            targetEndRoleName=" "
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="2e5d89e6-d9f5-4a21-b5a4-be9c516df00a"
+              LastKnownName="Ref"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b3f060bb-a6d1-4205-bcb3-4b5111bdf18c"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="986b6230-1765-4452-bf5d-20a6e77d340f"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="4a2a5160-eff0-4222-9066-32af4eac1424"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="91b535ce-5207-407e-8ab2-e9eac7eaa497"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="25421505-eaaa-4b87-85e3-d67529dc1bbb"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0b47287e-da43-4593-8503-2d6b9c953dbb"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b6c20c4b-8b7f-4b82-857d-a6f3141f2990"
+            isDerived="false"
+            sourceEndRoleName=" "
+            targetEndRoleName=" "
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+              LastKnownName="IMatrix"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="303e4cf0-4ecd-4b1b-b32b-bf66141fbcb2"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="7fa60c34-1605-4dbe-86da-c0e9e7834975"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="3df13b29-48cc-4dc2-a77a-3401bc08e037"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0d48b427-7db1-45ee-969d-a4708c536fc0"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="becc3970-909a-4b95-a64c-3057e3afafc9"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="12ef9fb1-5305-42ee-8de0-2f80741f7d4e"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="af61493a-ab57-421e-a542-f46738a6584f"
+            name="Ref&lt;IMatrix&gt; _matrixRef"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="3efe3343-8803-4299-874b-96d0bd171be1"
+            name="int _rowCount"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="2b175c03-3d62-4e7d-9f57-9778617de163"
+            name="int _columnCount"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="6192617d-bba6-4919-a944-8bad9dfb82db"
+            name="double[,] _values"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="3def1dec-0213-4e29-a80d-12966236cc74"
+            name="void Execute"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="89b4a0db-c27b-4ae2-b908-4b1892702589"
+        name="InitializeAppCommand"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="fcf3b6b0-6656-4849-9ea5-74d8e686bd19"
+            isSubstitutable="false">
+            <classMoniker
+              Id="d51b75c1-4140-462d-9680-2c753ccc8e31"
+              LastKnownName="Command"
+              LastKnownLocation="ModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="921d696a-329f-492a-9c9c-c955056aff09"
+            isDerived="false"
+            sourceEndRoleName=" "
+            targetEndRoleName=" "
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="2e5d89e6-d9f5-4a21-b5a4-be9c516df00a"
+              LastKnownName="Ref"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9ec9b77a-0588-4580-8ace-6220415787ad"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="2b9442e6-8242-4914-aede-6ada799af2d6"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="3f0fa4ce-7d0a-4991-bcc8-49dba38dec12"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="944bc3b7-af87-4c0c-a937-268ad8975c3a"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="e5c43715-8ae8-4c20-a1d6-a9160465f970"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ae551fb2-09db-44e3-9aba-248e5ab0b3e4"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1441600d-0803-4a9b-a3c8-2d26ab8349bc"
+            isDerived="false"
+            sourceEndRoleName=" "
+            targetEndRoleName=" "
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="5bb7021f-8a53-4786-86fb-5b282a954555"
+              LastKnownName="IMatrix"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="73cb726b-cfe9-43f9-838e-4d870b068ef8"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="98bbd8cd-d2dd-4a9b-a0ca-e48c9d81e084"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="300a7126-92ac-4a5f-a470-d30ab61a3f89"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="33e84207-3258-4006-8ec9-8b7826c118e2"
+                  name=" "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="937ce57f-5a79-4eca-948d-981e481acf99"
+                      name="Lower" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7d97b372-d7a5-4176-abe5-6ae0051dbd85"
+                      name="Upper" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="0f6f01b3-7dde-40c0-8dbb-6d3afcd28c29"
+            name="Ref&lt;IMatrix&gt; _matrixRef"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="570b2d44-d5c1-40ec-9b2c-a81fbc1bcbec"
+            name="int _columnCount"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="524f0330-fad7-4a92-813e-b2db860826e7"
+            name="int _rowCount"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="b5b8ecf9-55d9-404f-85df-9043dad5623a"
+            name="double _value"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="fdc48391-ee14-4804-a96d-244f537227a7"
+            name="void Execute"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

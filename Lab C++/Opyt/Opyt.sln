@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Opyt", "Opyt\Opyt.vcproj", "{56E22B25-35D3-4602-A983-427171A6BDCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56E22B25-35D3-4602-A983-427171A6BDCA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{56E22B25-35D3-4602-A983-427171A6BDCA}.Debug|Win32.Build.0 = Debug|Win32
+		{56E22B25-35D3-4602-A983-427171A6BDCA}.Release|Win32.ActiveCfg = Release|Win32
+		{56E22B25-35D3-4602-A983-427171A6BDCA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

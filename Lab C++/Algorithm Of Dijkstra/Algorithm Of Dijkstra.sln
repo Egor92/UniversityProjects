@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Algorithm Of Dijkstra", "Algorithm Of Dijkstra\Algorithm Of Dijkstra.vcproj", "{21AE6332-CC84-4022-8A33-B537F7FC4DC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21AE6332-CC84-4022-8A33-B537F7FC4DC1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{21AE6332-CC84-4022-8A33-B537F7FC4DC1}.Debug|Win32.Build.0 = Debug|Win32
+		{21AE6332-CC84-4022-8A33-B537F7FC4DC1}.Release|Win32.ActiveCfg = Release|Win32
+		{21AE6332-CC84-4022-8A33-B537F7FC4DC1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
